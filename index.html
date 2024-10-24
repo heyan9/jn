@@ -28,8 +28,7 @@
             z-index: -1;
             background-size: cover;
             background-position: center;
-            background-image: url('https://gitee.com/heqel/picgo/raw/master/images/1.jpeg'); /* 更新背景图 */
-            animation: zoom 30s infinite;
+            animation: zoom 30s infinite; /* 背景图片每30s放大一次 */
         }
 
         @keyframes zoom {
@@ -37,7 +36,7 @@
                 transform: scale(1);
             }
             100% {
-                transform: scale(1.3);
+                transform: scale(1.3); /* 逐渐放大到1.3倍 */
             }
         }
 
@@ -88,6 +87,7 @@
             text-decoration: underline;
         }
 
+        /* 日记框样式 */
         .diary-box {
             width: 80%;
             max-width: 400px;
@@ -95,30 +95,37 @@
             border-radius: 10px;
             margin-top: 10px;
             text-align: left;
-            font-size: 12px;
+            font-size: 12px; /* 更小的字体 */
             position: absolute;
-            bottom: 100px;
+            bottom: 100px; /* 靠近"已认识xxx天"的栏目 */
             left: 50%;
             transform: translateX(-50%);
-            transition: height 0.3s ease;
-            overflow: hidden;
-            height: 30px;
+            transition: height 0.3s ease; /* 添加过渡效果 */
+            overflow: hidden; /* 隐藏溢出内容 */
+            height: 30px; /* 初始高度 */
         }
 
         .diary-content {
-            height: 120px;
-            overflow-y: scroll;
+            height: 120px; /* 展开时的高度 */
+            overflow-y: scroll; /* 允许垂直滚动 */
         }
 
         .date-selector {
             margin-bottom: 5px;
-            font-size: 12px;
+            font-size: 12px; /* 更小的字体 */
         }
     </style>
     <script>
         let currentImageIndex = 0;
         const images = [
-            'https://gitee.com/heqel/picgo/raw/master/images/1.jpeg', // 更新背景图
+            'https://s2.loli.net/2024/10/24/SEZCXmhpANkJ7d2.jpg',
+            'https://s2.loli.net/2024/10/24/LUZnqhDfeWTMCau.jpg',
+            'https://s2.loli.net/2024/10/24/udjbKGHCxQfgSLi.jpg',
+            'https://s2.loli.net/2024/10/24/1UH2eXRFSYnO6iu.jpg',
+            'https://s2.loli.net/2024/10/24/CiqdlU4AFpoBT2w.jpg',
+            'https://s2.loli.net/2024/10/24/xEo9DgBfLrz14v7.jpg',
+            'https://s2.loli.net/2024/10/24/S5KZMI1CxmQ7bGH.jpg',
+            'https://s2.loli.net/2024/10/24/1FwDiTBLluEbhJ2.jpg'
         ];
 
         function changeBackgroundImage() {
@@ -143,10 +150,10 @@
             const rotatingText = document.getElementById("rotatingText");
 
             setInterval(() => {
-                rotatingText.style.opacity = 0;
+                rotatingText.style.opacity = 0; // 渐隐
                 setTimeout(() => {
                     rotatingText.innerText = texts[index];
-                    rotatingText.style.opacity = 1;
+                    rotatingText.style.opacity = 1; // 渐显
                     index = (index + 1) % texts.length;
                 }, 1000);
             }, 10000);
@@ -156,6 +163,7 @@
             window.open('https://pan.baidu.com/s/1eC04HwjykIpDVGnYJ0pWSQ?pwd=daye', '_blank');
         }
 
+        // 显示或隐藏弹出框
         function togglePopup() {
             const popup = document.querySelector('.popup-links');
             if (popup.style.display === 'none' || popup.style.display === '') {
@@ -165,49 +173,55 @@
             }
         }
 
+        // 背景图片切换每30秒触发一次
         setInterval(changeBackgroundImage, 30000);
 
         function selectDiary(event) {
             const diaryText = {
                 "2024-10-19": "生活就是平淡但有趣，我们总能发掘生活的精彩用一句歌词描述吧，我给不了你想要的生活，是不是就活该把你忘了",
-                "2024-05-5": "抽了一个五一假期人特别多的时候去武汉，我发誓我再也不想人多时候去了。拿到了很多黄鹤楼的图，可以拿来送人。武汉大学的大门就算是下雨也有很多人排队拍照。这个博物馆好像很出名的样子江汉路步行街，不是有时间千万不要去，虽然吃的很好吃，但是人巨多。黄花矶看鹦鹉洲长江大桥很好看。江汉路的茑屋一定要去打卡一下。这次武汉行，最重要的是，刘杰这个真心朋友是真的可以。",
-                "2024-05-1": "事情的起因是因为大爷还没恢复，她最近身体不是很好，在得知大爷五一要回家的消息后，我跟她提议要不要去近的地方转一圈，在大爷的建议下，我们决定起身前往仙岛湖。打算过一个难忘的周末。这是到仙岛湖之后拍的比较满意的一张，地点是开船沿东线望仙崖的位置，我们在路过仙岛湖的时候就被它的自然风光彻底吸引到了。当天晚上我们想去天空之城转一圈，所以我们开车上了倪家山（我回来后才查到那个山的名字)，虽然晚上的天空之城没有开，让我们两个在路上遇到了很快乐的一家人，晚上下山的路没有灯，我们约好一起开车下山，路边看到了仙岛湖很高的风景。在山上的时候，这个蠢货只顾着自己拍照，因为我不想搭理她，在路边看了看黄牛就走了。很久没有胆子大到让别人给我们拍照了，这张是一位大哥拍的，在船上我们还留了一张，得知给我们拍照的也是一大家子跑过来的，我还特意给他们拍了一张全家福。下船后我也忍不住在码头拍了一张留作纪念，游船上的小孩一直在向对面船的人招手，也有很多拿着望远镜到处观察的，虽然是阴天，但是游客们的心还是很暖的。这是我最满意的一张，可能这是大爷半辈子的拍摄巅峰。篇幅有限，今天就说到这儿，还是很怀念这一次的旅行。",
-                "2024-05-12": "亲爱的大爷：在写下这些文字的时候，我的心里充满了复杂的情感。我知道，这封信可能会让您感到意外，甚至会感到伤心，但我觉得这是我们必须面对的现实。我们的相处时光充满了快乐与美好的回忆，您给了我很多温暖和支持。我会永远珍惜那些瞬间，无论是一起散步，还是分享我们的生活。我希望您能理解，我无法继续保持这种关系。这并不是因为我不爱您，而是因为我知道我们各自都有不同的方向。我祝愿您未来的生活幸福快乐，也希望您能找到适合您的另一半，过上更美好的生活。谢谢您曾经的陪伴和爱。",
+                "2024-05-5": "抽了一个五一假期人特别多的时候去武汉，我发誓我再也不想人多时候去了。拿到了很多黄鹤楼的图，可以拿来送人。武汉大学的大门就算是下雨也有很多人排队拍照。这个博物馆好像很出名的样子江汉路步行街，不是有时间千万不要去，虽然吃的很好吃，但是人巨多。黄花矶看鹦鹉洲长江大桥很好看。江汉路的茑屋一定要去打卡一下。这次武汉行，最重要的是，刘杰这个真心朋友是真的可以。", 
+                "2024-05-1": "事情的起因是因为大爷还没恢复，她最近身体不是很好，在得知大爷五一要回家的消息后，我跟她提议要不要去近的地方转一圈，在大爷的建议下，我们决定起身前往仙岛湖。打算过一个难忘的周末。这是到仙岛湖之后拍的比较满意的一张，地点是开船沿东线望仙崖的位置，我们在路过仙岛湖的时候就被它的自然风光彻底吸引到了。当天晚上我们想去天空之城转一圈，所以我们开车上了倪家山（我回来后才查到那个山的名字)，虽然晚上的天空之城没有开，让我们两个在路上遇到了很快乐的一家人，晚上下山的路没有灯，我们约好一起开车下山，路边看到了仙岛湖很高的风景。在山上的时候，这个蠢货只顾着自己拍照，因为我不想搭理她，在路边看了看黄牛就走了。很久没有胆子大到让别人给我们拍照了，这张是一位大哥拍的，在船上我们还留了一张，得知给我们拍照的也是一大家子跑过来的，我还特意给他们拍了一张全家福。下船后我也忍不住在码头拍了一张留作纪念，游船上的小孩一直在向对面船的人招手，也有很多拿着望远镜到处观察的，虽然是阴天，但是游客们的心还是很暖的。这是我最满意的一张，可能这是大爷半辈子的拍摄巅峰。篇幅有限，今天就说到这儿，还是很怀念这一次的旅行。", 
+                "2024-05-12": "亲爱的大爷：在写下这些文字的时候，我的心里充满了复杂的情感。我知道，这封信可能会让您感到意外，甚至会感到伤心，但我觉得这是我们必须面对的现实。我们的相处时光充满了快乐与美好的回忆，您给了我很多温暖和支持。我会永远珍惜那些瞬间，无论是一起散步，还是分享生活中的点滴乐趣。这些都让我感受到幸福，也让我在您身边找到了归属感。然而，随着时间的推移，我渐渐意识到，我们之间的想法和期待有了越来越大的差距。无论是生活的目标，还是对未来的规划，我都感到我们需要不同的东西。为了彼此的幸福，我认为分开可能是最好的选择。我希望你能够理解我的决定，也希望你在今后的日子里能够找到属于自己的幸福。您是一个值得被爱的人，我相信，你会有更好的未来。谢谢您曾经的陪伴，愿我们都能在各自的路上走得更远。"
             };
             const selectedDate = event.target.value;
-            const diaryBox = document.querySelector('.diary-content');
-            diaryBox.innerText = diaryText[selectedDate] || "请选择日期查看日记内容";
-        }
+            const diaryContent = document.getElementById("diaryText");
+            const diaryBox = document.querySelector('.diary-box');
 
-        window.onload = function() {
-            calculateDays();
-            rotateText();
-            document.querySelector('.diary-box').style.height = 'auto';
-            document.querySelector('.diary-content').style.height = '0'; // 初始状态隐藏内容
-        };
+            if (selectedDate) {
+                diaryContent.innerText = diaryText[selectedDate];
+                diaryBox.style.height = "150px"; // 展开高度
+            } else {
+                diaryContent.innerText = ""; // 清空内容
+                diaryBox.style.height = "30px"; // 收起高度
+            }
+        }
     </script>
 </head>
-<body>
-    <div class="background"></div>
-    <img src="logo.png" alt="Logo" class="logo" onclick="togglePopup()">
-    <div class="timer" id="daysCounter"></div>
-    <div class="rotating-text" id="rotatingText"></div>
+<body onload="calculateDays(); rotateText();">
+    <div class="background" style="background-image: url('https://s2.loli.net/2024/10/24/1FwDiTBLluEbhJ2.jpg');"></div>
+
+    <img src="logo.png" alt="Logo" class="logo" onclick="redirectToLink()">
+
+    <div class="timer" id="daysCounter" onclick="togglePopup()"></div>
 
     <div class="popup-links">
-        <a href="#" onclick="redirectToLink()">查看视频</a>
+        <a href="https://www.duse1.com/" target="_blank">影视</a>
+        <a href="https://earth.google.com/static/multi-threaded/versions/10.65.1.2/index.html?" target="_blank">线上旅行</a>
+        <a href="https://heyan9.github.io/" target="_blank">何岩网站</a>
     </div>
 
+    <div class="rotating-text" id="rotatingText">爱而不得如何释怀</div>
+
+    <!-- 日记框 -->
     <div class="diary-box">
-        <div class="date-selector">
-            <select onchange="selectDiary(event)">
-                <option value="">选择日期</option>
-                <option value="2024-10-19">2024年10月19日</option>
-                <option value="2024-05-12">2024年5月12日</option>
-                <option value="2024-05-5">2024年5月5日</option>
-                <option value="2024-05-1">2024年5月1日</option>
-            </select>
-        </div>
-        <div class="diary-content"></div>
+        <select class="date-selector" onchange="selectDiary(event)">
+            <option value="">选择日期</option>
+            <option value="2024-10-19">2024年10月19日</option>
+            <option value="2024-05-12">2024年5月12日</option>
+            <option value="2024-05-5">2024年5月5日</option>
+            <option value="2024-05-1">2024年5月1日</option>
+        </select>
+        <div id="diaryText">请先选择日期以查看日记内容。</div>
     </div>
 </body>
 </html>
