@@ -34,32 +34,17 @@
         .logo {
             height: 70px;
             margin-bottom: 20px;
+            cursor: pointer;
         }
 
         .timer {
             font-size: 18px;
             color: #fff; /* 白字 */
+            background-color: rgba(51, 51, 51, 0.6); /* 灰黑色半透明 */
+            padding: 10px 20px;
+            border-radius: 10px;
             position: absolute;
             bottom: 90px; /* 距离底部90像素 */
-        }
-
-        .link {
-            margin-top: 12px;
-            padding: 7px;
-            border: 1px solid #000;
-            border-radius: 5px;
-            display: inline-block;
-            background-color: #333; /* 灰黑底 */
-        }
-
-        .link a {
-            color: #fff; /* 白字 */
-            text-decoration: none;
-            font-size: 12px;
-        }
-
-        .link a:hover {
-            text-decoration: underline;
         }
 
         .rotating-text {
@@ -96,17 +81,19 @@
                 }, 1000);
             }, 10000); // 每10秒切换一次
         }
+
+        // 点击 Logo 跳转到百度云盘链接
+        function redirectToLink() {
+            window.open('https://pan.baidu.com/s/1eC04HwjykIpDVGnYJ0pWSQ?pwd=daye', '_blank');
+        }
     </script>
 </head>
 <body onload="calculateDays(); rotateText();">
     <div class="background"></div>
-    <img src="logo.png" alt="Logo" class="logo">
-    
-    <div class="timer" id="daysCounter"></div> <!-- 大爷和大妈认识了部分，白字没有背景 -->
 
-    <div class="link">
-        <a href="https://pan.baidu.com/s/1eC04HwjykIpDVGnYJ0pWSQ?pwd=daye" target="_blank">我们的记忆，提取码：daye</a>
-    </div> <!-- 我们的记忆部分，灰黑底白字 -->
+    <img src="https://s2.loli.net/2024/10/24/2cpwfdKQIWDAbz8.png" alt="Logo" class="logo" onclick="redirectToLink()">
+
+    <div class="timer" id="daysCounter"></div> <!-- 大爷和大妈认识了部分，灰黑色半透明底白字 -->
 
     <div class="rotating-text" id="rotatingText">爱而不得如何释怀</div> <!-- 循环文本，白字没有背景 -->
 </body>
