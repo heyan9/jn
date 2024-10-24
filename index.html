@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大爷和大妈认识了</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .logo {
+            height: 70px;
+            margin-bottom: 20px;
+        }
+        .content {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .timer {
+            font-size: 14px;
+            color: #333;
+        }
+        .link {
+            margin-top: 12px;
+            padding: 7px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .link a {
+            color: #000;
+            text-decoration: none;
+            font-size: 9px;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+        .rotating-text {
+            position: absolute;
+            bottom: 50px;
+            font-size: 12px;
+            color: #666;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+    <script>
+        function calculateDays() {
+            const startDate = new Date("2023-12-07");
+            const currentDate = new Date();
+            const timeDiff = Math.abs(currentDate - startDate);
+            const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+            document.getElementById("daysCounter").innerText = "已经认识了 " + daysDiff + " 天";
+        }
+
+        function rotateText() {
+            const texts = [
+                "杨柳丝丝弄轻柔,烟缕织成愁",
+                "所爱隔山海,山海皆可平 所念皆星河,星河不可及",
+                "莫思身外无穷事,且尽生前有限杯"
+            ];
+            let index = 0;
+            const rotatingText = document.getElementById("rotatingText");
+
+            setInterval(() => {
+                rotatingText.style.opacity = 0; // 渐隐
+                setTimeout(() => {
+                    rotatingText.innerText = texts[index]; // 切换文本
+                    rotatingText.style.opacity = 1; // 渐显
+                    index = (index + 1) % texts.length; // 循环切换文本
+                }, 1000);
+            }, 10000); // 每10秒切换一次
+        }
+    </script>
+</head>
+<body onload="calculateDays(); rotateText();">
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="content">大爷和大妈</div>
+    <div class="timer" id="daysCounter"></div>
+
+    <div class="link">
+        <a href="https://pan.baidu.com/s/1eC04HwjykIpDVGnYJ0pWSQ?pwd=daye" target="_blank">填写我们的记忆，提取码：daye</a>
+    </div>
+
+    <div class="rotating-text" id="rotatingText">爱而不得如何释怀</div>
+</body>
+</html>
