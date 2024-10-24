@@ -38,19 +38,19 @@
 
         .content {
             font-size: 16px;
-            color: #555;
+            color: #fff;
             margin-bottom: 10px;
-            background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
             padding: 10px;
             border-radius: 5px;
         }
 
         .timer {
-            font-size: 14px;
-            color: #333;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 5px;
+            font-size: 18px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.8); /* 黑底白字 */
+            padding: 10px;
             border-radius: 5px;
+            margin-bottom: 15px;
         }
 
         .link {
@@ -59,13 +59,13 @@
             border: 1px solid #000;
             border-radius: 5px;
             display: inline-block;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: #000; /* 黑底白字 */
         }
 
         .link a {
-            color: #000;
+            color: #fff; /* 白字 */
             text-decoration: none;
-            font-size: 9px;
+            font-size: 12px;
         }
 
         .link a:hover {
@@ -76,8 +76,8 @@
             position: absolute;
             bottom: 50px;
             font-size: 12px;
-            color: #666;
-            background-color: rgba(255, 255, 255, 0.8);
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.8); /* 黑底白字 */
             padding: 5px;
             border-radius: 5px;
             transition: opacity 1s ease-in-out;
@@ -89,14 +89,13 @@
             const currentDate = new Date();
             const timeDiff = Math.abs(currentDate - startDate);
             const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-            document.getElementById("daysCounter").innerText = "已经认识了 " + daysDiff + " 天";
+            document.getElementById("daysCounter").innerText = "大爷和大妈已经认识了 " + daysDiff + " 天";
         }
 
         function rotateText() {
             const texts = [
                 "杨柳丝丝弄轻柔,烟缕织成愁",
-                "所爱隔山海,山海皆可平 所念皆星河,星河不可及",
-                "莫思身外无穷事,且尽生前有限杯"
+                "所爱隔山海,山海皆可平 所念皆星河,星河不可及"
             ];
             let index = 0;
             const rotatingText = document.getElementById("rotatingText");
@@ -115,9 +114,9 @@
 <body onload="calculateDays(); rotateText();">
     <div class="background"></div>
     <img src="logo.png" alt="Logo" class="logo">
-    <div class="content">大爷和大妈</div>
-    <div class="timer" id="daysCounter"></div>
-
+    
+    <div class="timer" id="daysCounter"></div> <!-- 认识了 xxx 天部分 -->
+    
     <div class="link">
         <a href="https://pan.baidu.com/s/1eC04HwjykIpDVGnYJ0pWSQ?pwd=daye" target="_blank">我们的记忆，提取码：daye</a>
     </div>
