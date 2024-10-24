@@ -36,20 +36,9 @@
             margin-bottom: 20px;
         }
 
-        .content {
-            font-size: 16px;
-            color: #fff;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
         .timer {
             font-size: 18px;
-            color: #fff;
-            background-color: rgba(0, 0, 0, 0.8); /* 黑底白字 */
-            padding: 10px;
-            border-radius: 5px;
+            color: #fff; /* 白字 */
             margin-bottom: 15px;
         }
 
@@ -59,7 +48,7 @@
             border: 1px solid #000;
             border-radius: 5px;
             display: inline-block;
-            background-color: #000; /* 黑底白字 */
+            background-color: #333; /* 灰黑底 */
         }
 
         .link a {
@@ -76,10 +65,7 @@
             position: absolute;
             bottom: 50px;
             font-size: 12px;
-            color: #fff;
-            background-color: rgba(0, 0, 0, 0.8); /* 黑底白字 */
-            padding: 5px;
-            border-radius: 5px;
+            color: #fff; /* 白字，没有背景 */
             transition: opacity 1s ease-in-out;
         }
     </style>
@@ -115,12 +101,12 @@
     <div class="background"></div>
     <img src="logo.png" alt="Logo" class="logo">
     
-    <div class="timer" id="daysCounter"></div> <!-- 认识了 xxx 天部分 -->
-    
+    <div class="timer" id="daysCounter"></div> <!-- 大爷和大妈认识了部分，白字没有背景 -->
+
     <div class="link">
         <a href="https://pan.baidu.com/s/1eC04HwjykIpDVGnYJ0pWSQ?pwd=daye" target="_blank">我们的记忆，提取码：daye</a>
-    </div>
+    </div> <!-- 我们的记忆部分，灰黑底白字 -->
 
-    <div class="rotating-text" id="rotatingText">爱而不得如何释怀</div>
+    <div class="rotating-text" id="rotatingText">爱而不得如何释怀</div> <!-- 循环文本，白字没有背景 -->
 </body>
 </html>
