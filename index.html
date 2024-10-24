@@ -16,15 +16,40 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('https://s2.loli.net/2024/10/24/nWMqFpcCrmGei8Z.png');
+            overflow: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            animation: bgAnimation 40s infinite alternate;
         }
+
+        @keyframes bgAnimation {
+            0% {
+                background-image: url('https://s2.loli.net/2024/10/24/LkheEYQzwtc6l4A.jpg');
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                background-image: url('https://s2.loli.net/2024/10/24/1FwDiTBLluEbhJ2.jpg');
+                opacity: 1;
+            }
+        }
+
         .logo {
             height: 70px;
             margin-bottom: 20px;
         }
+
         .content {
             font-size: 16px;
             color: #555;
@@ -33,6 +58,7 @@
             padding: 10px;
             border-radius: 5px;
         }
+
         .timer {
             font-size: 14px;
             color: #333;
@@ -40,6 +66,7 @@
             padding: 5px;
             border-radius: 5px;
         }
+
         .link {
             margin-top: 12px;
             padding: 7px;
@@ -48,14 +75,17 @@
             display: inline-block;
             background-color: rgba(255, 255, 255, 0.8);
         }
+
         .link a {
             color: #000;
             text-decoration: none;
             font-size: 9px;
         }
+
         .link a:hover {
             text-decoration: underline;
         }
+
         .rotating-text {
             position: absolute;
             bottom: 50px;
@@ -97,6 +127,7 @@
     </script>
 </head>
 <body onload="calculateDays(); rotateText();">
+    <div class="background"></div>
     <img src="logo.png" alt="Logo" class="logo">
     <div class="content">大爷和大妈</div>
     <div class="timer" id="daysCounter"></div>
